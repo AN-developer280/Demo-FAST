@@ -1,0 +1,2 @@
+/* Print / Save as PDF (reports) */
+@media print{#side,.top,.noprint,#toast{display:none!important}body{background:#fff!important;color:#000}.card,.st{box-shadow:none;backdrop-filter:none}#main{padding:0}}

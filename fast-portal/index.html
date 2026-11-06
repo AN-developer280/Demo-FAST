@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FAST — Faculty and Admin Scheduling Tool</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<!-- Tailwind (CDN, needs internet) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<!-- Styles -->
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/print.css">
+</head>
+<body class="h-full">
+<div id="app"></div>
+<div id="toast" role="status"></div>
+<!-- Scripts: order matters (core -> shared -> teacher -> admin -> render -> main) -->
+<script src="js/core/constants.js"></script>
+<script src="js/core/dates.js"></script>
+<script src="js/core/timing.js"></script>
+<script src="js/core/utils.js"></script>
+<script src="js/core/syllabus.js"></script>
+<script src="js/core/state.js"></script>
+<script src="js/core/scheduler.js"></script>
+<script src="js/core/seed.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/api.js"></script>
+<script src="js/core/login-view.js"></script>
+<script src="js/shared/components.js"></script>
+<script src="js/shared/reports.js"></script>
+<script src="js/teacher/helpers.js"></script>
+<script src="js/teacher/actions.js"></script>
+<script src="js/teacher/pages.js"></script>
+<script src="js/admin/actions.js"></script>
+<script src="js/admin/syllabus.js"></script>
+<script src="js/admin/subjects.js"></script>
+<script src="js/admin/timings.js"></script>
+<script src="js/admin/announcements.js"></script>
+<script src="js/admin/pages.js"></script>
+<script src="js/core/render.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

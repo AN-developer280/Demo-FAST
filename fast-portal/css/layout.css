@@ -1,0 +1,29 @@
+/* App shell: sidebar, animated wave, main area, top bar */
+#side{width:230px;background:linear-gradient(180deg,#0c4a6e,#075985 55%,#0e7490);padding:16px 12px 0;flex-shrink:0;display:flex;flex-direction:column;gap:2px;position:relative;overflow:hidden}
+#side h1{font-size:20px;color:#fff;margin:0 6px 2px;letter-spacing:1px}#side small{display:block;margin:0 6px 14px;color:#a5e3f5}
+.mi{display:block;padding:9px 12px;border-radius:12px;cursor:pointer;color:#d4f1fa;transition:.2s;position:relative;z-index:1}.mi:hover{background:rgba(255,255,255,.14);transform:translateX(3px)}.mi.on{background:linear-gradient(90deg,#22d3ee,#3b82f6);color:#fff;box-shadow:0 4px 14px rgba(34,211,238,.45)}
+.wv{height:46px;margin:auto -12px 0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 40' preserveAspectRatio='none'%3E%3Cpath d='M0 20 Q75 0 150 20 T300 20 T450 20 T600 20 V40 H0Z' fill='%23fff' fill-opacity='.22'/%3E%3C/svg%3E") repeat-x,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 40' preserveAspectRatio='none'%3E%3Cpath d='M0 20 Q75 0 150 20 T300 20 T450 20 T600 20 V40 H0Z' fill='%23fff' fill-opacity='.22'/%3E%3C/svg%3E") repeat-x;background-size:600px 46px,420px 40px;background-position:0 6px,0 0;animation:wv 9s linear infinite;flex-shrink:0}
+@keyframes wv{to{background-position:600px 6px,-420px 0}}
+#side{position:sticky;top:0;height:100vh;align-self:flex-start;overflow-y:auto}
+.mbar,.ov{display:none}
+#main{flex:1;max-width:1400px;padding:22px;min-width:0}.top{display:flex;justify-content:space-between;align-items:center;margin:-6px 0 14px}
+
+/* ---- Sidebar v2: brand, grouped navigation, badge, footer ---- */
+#side{width:248px;padding:18px 12px 0;gap:0;background:radial-gradient(120% 60% at 0% 0%,rgba(34,211,238,.28),transparent 60%),linear-gradient(180deg,#0b3f63,#075985 50%,#0e7490);box-shadow:4px 0 24px rgba(7,89,133,.22)}
+#side .brand{display:flex;align-items:center;gap:11px;margin:0 4px 6px;padding:10px 10px 14px;border-bottom:1px solid rgba(255,255,255,.14)}
+#side .bl{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-size:23px;background:linear-gradient(135deg,#22d3ee,#3b82f6);box-shadow:0 6px 16px rgba(34,211,238,.4);flex-shrink:0}
+#side h1{font-size:19px;margin:0;letter-spacing:2px;line-height:1.1}
+#side .brand small{margin:2px 0 0;font-size:12px;color:#a5e3f5;line-height:1.2;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#side nav{display:flex;flex-direction:column;gap:2px;position:relative;z-index:1}
+.ng{font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#7fd3ec;margin:14px 10px 4px;opacity:.85}
+.mi{display:flex;align-items:center;gap:11px;padding:8px 10px;border-radius:12px;color:#d4f1fa;font-weight:500}
+.mi .ic{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-size:16px;background:rgba(255,255,255,.1);flex-shrink:0;transition:.2s}
+.mi .nm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mi:hover{background:rgba(255,255,255,.12);transform:translateX(3px)}.mi:hover .ic{background:rgba(255,255,255,.2)}
+.mi.on{background:linear-gradient(90deg,rgba(34,211,238,.95),rgba(59,130,246,.95));color:#fff;font-weight:700;box-shadow:0 6px 16px rgba(34,211,238,.35)}.mi.on .ic{background:rgba(255,255,255,.25)}
+.bdg{font-style:normal;font-size:11px;font-weight:700;min-width:20px;height:20px;line-height:20px;text-align:center;border-radius:99px;background:#f43f5e;color:#fff;padding:0 6px;box-shadow:0 2px 8px rgba(244,63,94,.5)}
+#side .sf{margin-top:auto;padding-top:10px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:2px;position:relative;z-index:1}
+#side .wv{margin-top:8px}
+#side::-webkit-scrollbar{width:6px}#side::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:6px}
+.pg{animation:pgin .35s ease both}@keyframes pgin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:900px){#side{width:262px}}

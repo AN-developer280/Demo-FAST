@@ -1,0 +1,10 @@
+/* Lecture timing engine (rules, slots, AM/PM selects).
+   A rule = {st,en,br,n} (n = lectures per day, break falls after lecture n/2) or {sl:[{s,e}..]} (custom slot list, n = its length).
+   Scope priority: day > week > month > always (standing default); same scope -> newest wins.
+   A date no rule covers keeps the admin's latest week/month/standing timing (it stays until changed); only a "day" rule is a one-day exception. DEF is just the first-run value. */
+const DEF={st:840,en:1020,br:20,n:4};
+const calc=r=>{if(r.sl)return r.sl;const n=Math.max(1,r.n||4),b=n>1?r.br:0,l=Math.floor((r.en-r.st-b)/n),h=n>>1;return[...Array(n).keys()].map(k=>{const s=r.st+k*l+(k>=h?b:0);return{s,e:s+l}})};
+const rng=(sc,dt)=>{const d=new Date(dt+"T00:00:00");if(sc=="always")return["0000-01-01","9999-12-31"];if(sc=="day")return[dt,dt];if(sc=="week"){const a=new Date(d);a.setDate(d.getDate()-dix(dt));const b=new Date(a);b.setDate(a.getDate()+6);return[ld(a),ld(b)]}return[ld(new Date(d.getFullYear(),d.getMonth(),1)),ld(new Date(d.getFullYear(),d.getMonth()+1,0))]};
+const RK={day:3,week:2,month:1,always:0},rule=dt=>st.rules.filter(r=>dt>=r.f&&dt<=r.t).reduce((a,r)=>!a||(RK[r.sc]||0)>(RK[a.sc]||0)?r:a,null)||st.rules.find(r=>r.sc!="day")||DEF,slots=dt=>calc(rule(dt)),tm=(e,dt)=>{if(e.c)return{s:e.c[0],e:e.c[1]};const S=slots(dt);return S[e.k]||S[S.length-1]},rl=r=>r.sc=="always"?"All days (standing)":r.f+(r.f==r.t?"":" → "+r.t),ov=(a,b)=>a.s<b.e&&b.s<a.e;
+const tsel=(id,m)=>{const h=Math.floor(m/60)%24,mi=m%60,ms=[...new Set([...Array(12).keys()].map(i=>i*5).concat(mi))].sort((a,b)=>a-b);return`<span class="ts"><select id="${id}h">${[...Array(12)].map((_,i)=>`<option ${(h%12||12)==i+1?"selected":""}>${i+1}</option>`).join("")}</select>:<select id="${id}m">${ms.map(x=>`<option value="${x}" ${x==mi?"selected":""}>${String(x).padStart(2,"0")}</option>`).join("")}</select> <select id="${id}p"><option ${h<12?"selected":""}>AM</option><option ${h>=12?"selected":""}>PM</option></select></span>`};
+const tget=id=>(+$("#"+id+"h").value%12)*60+ +$("#"+id+"m").value+($("#"+id+"p").value=="PM"?720:0);

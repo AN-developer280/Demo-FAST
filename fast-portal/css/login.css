@@ -1,0 +1,18 @@
+/* Login screen extras (layout itself uses Tailwind classes) */
+.logo{font-size:46px;animation:fl 3s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-6px)}}
+.login-wv{margin:18px -12px 0;border-radius:18px;background-color:#0891b2}
+
+/* Logo image + public home page */
+.logo-img{width:84px;height:84px;display:block;margin:0 auto 6px;filter:drop-shadow(0 8px 18px rgba(8,145,178,.35));animation:fl 3s ease-in-out infinite}
+#side .bl{background:none;box-shadow:none;overflow:hidden}#side .bl img{width:42px;height:42px;display:block;border-radius:14px;box-shadow:0 6px 16px rgba(34,211,238,.4)}
+.home{flex:1;display:flex;flex-direction:column;min-height:100vh;position:relative;overflow:hidden}
+.hn{display:flex;justify-content:space-between;align-items:center;padding:16px clamp(16px,5vw,48px)}
+.hb{display:flex;align-items:center;gap:10px;font-size:20px;letter-spacing:2px;color:var(--pr)}.hb img{width:38px;height:38px;border-radius:12px}
+.hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 16px 80px;gap:6px;animation:pgin .6s ease both}
+.hlogo{width:min(34vw,128px);height:auto;filter:drop-shadow(0 14px 28px rgba(8,145,178,.4));animation:fl 3.2s ease-in-out infinite}
+.hero h1{margin:8px 0 0;font-size:clamp(44px,9vw,76px);letter-spacing:8px;line-height:1;font-weight:800;background:linear-gradient(90deg,var(--pr),var(--ac2),var(--ac));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hs{margin:4px 0 0;font-size:clamp(16px,3vw,22px);font-weight:600;color:var(--ac)}
+.hero p.mu{margin:2px 0 14px;max-width:420px}
+.hbtn{font-size:17px;padding:13px 54px;margin:6px 0 10px;box-shadow:0 10px 26px var(--ring)}
+.hw{position:absolute;left:0;right:0;bottom:34px;margin:0;border-radius:0;height:60px;opacity:.55;pointer-events:none}
+.hf{text-align:center;padding:10px;font-size:12px;position:relative}
